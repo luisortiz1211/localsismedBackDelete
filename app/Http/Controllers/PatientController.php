@@ -153,7 +153,7 @@ class PatientController extends Controller
     {
         //$this->authorize('view',$physicalExam);
         Patient::class;
-        $patient = $explorationPatient->where('physicalExam_id', $patient['id'])->get();
+        $patient = $explorationPatient->where('patient_id', $patient['id'])->get();
         return response()->json(new ExplorationPatientCollection($patient), 200);
     }
     //mostrar imagenes del paciente

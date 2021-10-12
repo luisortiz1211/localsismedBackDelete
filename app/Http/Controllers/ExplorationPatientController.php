@@ -63,6 +63,16 @@ class ExplorationPatientController extends Controller
           return response()->json(new ExplorationPatientResource($explorationPatient), 200);
       }
     // mostrar una exploracion
+  /*   public function showExplorationPhysic(PhysicalExam $physicalExam, ExplorationPatient $explorationPatient)
+    {
+        //$this->authorize('view',$physicalExam);
+        PhysicalExam::class;
+        $physicalExam = $explorationPatient->where('physicalExam_id', $physicalExam['id'])->get();
+        return response()->json(new ExplorationPatientCollection($physicalExam), 200);
+    }
+ */
+
+
     public function showOnePatientExploration(Patient $patient,ExplorationPatient $explorationPatient)
     {
         //$this->authorize('view',$explorationPatient);

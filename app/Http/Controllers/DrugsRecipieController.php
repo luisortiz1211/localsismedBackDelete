@@ -40,6 +40,17 @@ class DrugsRecipieController extends Controller
         return response()->json(new DrugsRecipieResource($drugsRecipie), 200);
     }
 
+    public function showdrug(  Patient $patient,DrugsRecipie $drugsRecipie)
+    {
+        
+         Patient::class;
+        $patient = $drugsRecipie->where('exploration_id', $explorationPatient['id'])->get();
+        return response()->json(new DrugsRecipieCollection($explorationPatient), 200);
+     
+
+    }
+
+
     //Recetas enviadas por el usuario
     public function showDrugsRecipie(User $user, DrugsRecipie $drugsRecipie)
     {
@@ -55,11 +66,12 @@ class DrugsRecipieController extends Controller
          $drugsRecipie = $patient->drugsRecipie()->where('id',$drugsRecipie->id)->firstOrFail();
          return response()->json($drugsRecipie,200);
     }
+
 // mostrar los medicamentos de un paciente desd exploracio   n
    public function showOnePatientDrugs(ExplorationPatient $explorationPatient, DrugsRecipie $drugsRecipie)
    {   
         //$this->authorize('view',$emergencyContact);   
-        $drugsRecipie = $explorationPatient->drugsRecipie()->   where('id',$drugsRecipie->id)->firstOrFail();
+        $drugsRecipie = $explorationPatient->drugsRecipie()->where('id',$drugsRecipie->exploration_id)->firstOrFail();
         return response()->json($drugsRecipie,200);
    }
 

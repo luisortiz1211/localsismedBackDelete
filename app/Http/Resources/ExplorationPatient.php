@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 use App\Patient;
+use App\PhysicalExam;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ExplorationPatient extends JsonResource
@@ -17,7 +18,7 @@ class ExplorationPatient extends JsonResource
         //return parent::toArray($request);
         return [
             'patient_id' => $this->patient_id,
-            'physicalExam_id'=>$this->id,
+            'physicalExam_id'=>$this->physicalExam_id,
             'explorationPatient_id' =>$this->id,
             'headExplo' => $this->headExplo,
             'chestExplo' => $this->chestExplo,
