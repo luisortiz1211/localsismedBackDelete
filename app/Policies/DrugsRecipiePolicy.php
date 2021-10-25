@@ -35,7 +35,7 @@ class DrugsRecipiePolicy
      */
     public function view(User $user, DrugsRecipie $drugsRecipie)
     {
-        return $user->isGranted(User::ROLE_MEDIC);
+        return $user->isGranted(User::ROLE_ASSISTENT);
     }
 
     /**

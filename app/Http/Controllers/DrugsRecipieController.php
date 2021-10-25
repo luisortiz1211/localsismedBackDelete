@@ -36,7 +36,7 @@ class DrugsRecipieController extends Controller
     }
     public function show(DrugsRecipie $drugsRecipie)
     {
-        //$this->authorize($drugsRecipie);
+        $this->authorize($drugsRecipie);
         return response()->json(new DrugsRecipieResource($drugsRecipie), 200);
     }
 
@@ -46,8 +46,6 @@ class DrugsRecipieController extends Controller
          Patient::class;
         $patient = $drugsRecipie->where('exploration_id', $explorationPatient['id'])->get();
         return response()->json(new DrugsRecipieCollection($explorationPatient), 200);
-     
-
     }
 
 

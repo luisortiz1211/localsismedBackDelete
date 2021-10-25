@@ -38,6 +38,8 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     
     //---------Rutas de pacientes-----------------------------
     //Route::get('users/{user}/patients/{patient}', 'PatientController@show');
+    Route::get('patients/all', 'App\\Http\\Controllers\\PatientController@showAll');
+    
     Route::get('patients', 'App\\Http\\Controllers\\PatientController@index');
     Route::get('patients/{patient}', 'App\\Http\\Controllers\\PatientController@show');
     Route::get('patients/{patient}/emergency_contacts', 'App\\Http\\Controllers\\PatientController@showContacts');
@@ -142,28 +144,24 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::put('patients/{patient}/image_recipies/{image_recipie}', 'App\\Http\\Controllers\\ImageRecipieController@updateImagePatient');
     Route::get('exploration_patients/{exploration_patient}/image_recipies', 'App\\Http\\Controllers\\ExplorationPatientController@showExploreImage');
     Route::post('exploration_patients/{exploration_patient}/image_recipies', 'App\\Http\\Controllers\\ImageRecipieController@store');
-    
-
-    Route::get('exploration_patients/{exploration_patient}/image_recipies/{image_recipie}', 'App\\Http\\Controllers\\ImageRecipieController@showOnePatientImage');
-    Route::put('exploration_patients/{exploration_patient}/image_recipies/{image_recipie}', 'App\\Http\\Controllers\\ImageRecipieController@update');
-    Route::get('users/{user}/image_recipies', 'App\\Http\\Controllers\\ImageRecipieController@showImageRecipies');
+   // Route::get('exploration_patients/{exploration_patient}/image_recipies/{image_recipie}', 'App\\Http\\Controllers\\ImageRecipieController@showOnePatientImage');
+   //Route::put('exploration_patients/{exploration_patient}/image_recipies/{image_recipie}', 'App\\Http\\Controllers\\ImageRecipieController@update');
     Route::delete('exploration_patients/{exploration_patient}/image_recipies/{image_recipie}', 'App\\Http\\Controllers\\ImageRecipieController@delete');
+    Route::get('users/{user}/image_recipies', 'App\\Http\\Controllers\\ImageRecipieController@showImageRecipies');
 
     //-----------Rutas a medicamentos-----------------------------
     //Route::get('drugs_recipies', 'DrugsRecipieController@index');
     Route::get('drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@show');
-
-
     
     Route::get('patients/{patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@showDrugsRecipiePatient');
     Route::get('patients/{patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@updateDrugsRecipiePatient');
     Route::get('exploration_patients/{exploration_patient}/drugs_recipies', 'App\\Http\\Controllers\\ExplorationPatientController@showExploreDrugs');
     Route::post('exploration_patients/{exploration_patient}/drugs_recipies', 'App\\Http\\Controllers\\DrugsRecipieController@store');
-    //Route::get('exploration_patients/{exploration_patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@showOnePatientDrugs');
-    Route::put('exploration_patients/{exploration_patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@update');
     
+    //Route::get('exploration_patients/{exploration_patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@showOnePatientDrugs');
+    //Route::put('exploration_patients/{exploration_patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@update');
+    Route::delete('exploration_patients/{exploration_patient}/drugs_recipies/{drugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@delete');
     Route::get('users/{user}/drugs_recipies', 'App\\Http\\Controllers\\DrugsRecipieController@showDrugsRecipie');
-    Route::delete('exploration_patients/{exploration_patient}/drugs_recipies/{ddrugs_recipie}', 'App\\Http\\Controllers\\DrugsRecipieController@delete');
 
     //Route::post('patients/{patient}/drugs_recipies', 'App\\Http\\Controllers\\DrugsRecipieController@store');
    
