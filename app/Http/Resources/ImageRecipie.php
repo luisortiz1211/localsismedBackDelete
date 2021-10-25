@@ -24,6 +24,8 @@ class ImageRecipie extends JsonResource
             'codimage' => $this->codimage,
             'nameImageRecipie' => $this->nameImageRecipie,
             'created_at'=>$this->created_at,
+            'exploration_id'=>$this->exploration_id,
+
         ];
     }
 }

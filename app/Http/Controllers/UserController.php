@@ -23,7 +23,8 @@ class UserController extends Controller
     public static $rules = [
         'name' => 'nullable|string',
         'lastName' => 'nullable|string',
-        'email' => 'nullable|e-mail',
+        'email' => 'required|unique:users|e-mail',
+        'ci' => 'required|unique:users',
         'password' => 'nullable|confirmed',
         'availableStatus' => 'nullable|boolean',
         'roleUser' => 'nullable|string',

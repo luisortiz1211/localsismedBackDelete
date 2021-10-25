@@ -23,7 +23,7 @@ class ExplorationPatientPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->isGranted(User::ROLE_ADMIN);
+        return $user->isGranted(User::ROLE_ASSISTENT);
     }
 
     /**
@@ -35,7 +35,7 @@ class ExplorationPatientPolicy
      */
     public function view(User $user, ExplorationPatient $explorationPatient)
     {
-        return $user->isGranted(User::ROLE_MEDIC);
+        return $user->isGranted(User::ROLE_ASSISTENT);
     }
 
     /**

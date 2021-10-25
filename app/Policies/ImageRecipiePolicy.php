@@ -36,7 +36,7 @@ class ImageRecipiePolicy
      */
     public function view(User $user, ImageRecipie $imageRecipie)
     {
-        return $user->isGranted(User::ROLE_MEDIC);
+        return $user->isGranted(User::ROLE_ASSISTENT);
     }
 
     /**

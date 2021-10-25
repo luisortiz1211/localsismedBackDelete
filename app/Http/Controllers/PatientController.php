@@ -88,9 +88,14 @@ class PatientController extends Controller
     public function index()
     {
         //$this->authorize('view',Patient::class);
-        return new PatientCollection(Patient::paginate(10));
+        return new PatientCollection(Patient::paginate(20));
     }
-    //mostrar paciente id
+    //mostrar todos los pacientes
+    public function showAll()
+    {
+        return new PatientCollection(Patient::all());
+    }
+
     public function show(Patient $patient)
     {
         //$this->authorize('view', $patient);
@@ -153,7 +158,7 @@ class PatientController extends Controller
     {
         //$this->authorize('view',$physicalExam);
         Patient::class;
-        $patient = $explorationPatient->where('physicalExam_id', $patient['id'])->get();
+        $patient = $explorationPatient->where('patient_id', $patient['id'])->get();
         return response()->json(new ExplorationPatientCollection($patient), 200);
     }
     //mostrar imagenes del paciente
