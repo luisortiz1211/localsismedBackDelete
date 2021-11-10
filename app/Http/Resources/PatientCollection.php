@@ -18,7 +18,7 @@ class PatientCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                'self' => 'link-value',
+                'self' => 'link-value',  
             ],
         ];
     }

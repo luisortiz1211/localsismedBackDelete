@@ -19,7 +19,8 @@ class ScheduleDayCollection extends ResourceCollection
         return [
             'data' => $this->collection,
             'links' => [
-                //'patient' => '/api/patients/' . $this->patient_id,
+                'self' => 'link-value',
+            
             ],
         ];
     }

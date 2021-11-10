@@ -35,7 +35,7 @@ class UsersTableSeeder extends Seeder
        ]);
         // Generar algunos usuarios para nuestra aplicacion
         //$num_user = 3;
-        for ($i = 0; $i < 2; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $assistent = Assistent::create([
                 'ci'=>$faker->isbn13,
                 'employment'=>$faker->catchPhrase,
