@@ -32,8 +32,16 @@ class ScheduleDayController extends Controller
     // muestra todas las agendas del dia
     public function index()
     {
+        //$this->authorize('view',ScheduleDay::class);
         return new ScheduleDayCollection(ScheduleDay::paginate(10));
     }
+
+    //mostrar estado de agendamiento
+    public function showAll()
+    {
+        return new ScheduleDayCollection(ScheduleDay::all());
+    }
+
     // muestra las agendas de un usuario
     public function show(ScheduleDay $scheduleDay)
     {

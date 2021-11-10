@@ -77,7 +77,7 @@ class EmergencyContactController extends Controller
     //borrar contacto de emergencia
     public function delete(Patient $patient, EmergencyContact $emergencyContact)
     {
-        //$this->authorize('delete',$emergencyContact);
+        $this->authorize('delete',$emergencyContact);
         $emergencyContact->delete();
         return response()->json(null, 204);
     }

@@ -49,10 +49,13 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('patients/{patient}/physical_exams', 'App\\Http\\Controllers\\PatientController@showPhysicalExams');
     Route::get('patients/{patient}/exploration_patients', 'App\\Http\\Controllers\\PatientController@showExplorationPatient');
     Route::get('patients/{patient}/image_recipies', 'App\\Http\\Controllers\\PatientController@showImageRecipies');
+    Route::get('searching/{search}','App\\Http\\Controllers\\PatientController@search' );
+
     //Route::get('patients/{patient}/drugs_recipies', 'App\\Http\\Controllers\\PatientController@showdrug');
     //Route::delete('patients/{patient}', 'PatientController@delete');
 
     //----------Rutas pacientes agendados-----------------------------
+    Route::get('schedule_days/all', 'App\\Http\\Controllers\\ScheduleDayController@showAll');
     Route::get('schedule_days', 'App\\Http\\Controllers\\ScheduleDayController@index');
     Route::get('schedule_days/{schedule_day}', 'App\\Http\\Controllers\\ScheduleDayController@show');
     
@@ -79,7 +82,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('patients/{patient}/emergency_contacts', 'App\\Http\\Controllers\\EmergencyContactController@store');
     Route::get('patients/{patient}/emergency_contacts/{emergency_contact}', 'App\\Http\\Controllers\\EmergencyContactController@showOneEmergencyContact');
     Route::put('patients/{patient}/emergency_contacts/{emergency_contact}', 'App\\Http\\Controllers\\EmergencyContactController@update');
-    Route::delete('patients/{patient}/emergency_contacts/{emergency_contac}', 'App\\Http\\Controllers\\EmergencyContactController@delete');
+    Route::delete('emergency_contacts/{emergency_contact}', 'App\\Http\\Controllers\\EmergencyContactController@delete');
 
     //----------Enfermedades que padece en paciente-----------------------------
     //Route::get('personal_histories', 'PersonalHistoryController@index');
@@ -104,7 +107,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('patients/{patient}/family_histories/{family_history}', 'App\\Http\\Controllers\\FamilyHistoryController@showOneFamilyHistory');
     Route::put('patients/{patient}/family_histories/{family_history}', 'App\\Http\\Controllers\\FamilyHistoryController@update');
     Route::delete('patients/{patient}/family_histories/{family_history}', 'App\\Http\\Controllers\\FamilyHistoryController@delete');
-
+    
     //----------Rutas de examenes fisicos-----------------------------
     //Route::get('physical_exams', 'PhysicalExamController@index');
     Route::get('physical_exams/{physical_exam}', 'App\\Http\\Controllers\\PhysicalExamController@show');
